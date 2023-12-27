@@ -1,0 +1,16 @@
+<!-- course.component.html -->
+<div>
+  <h2>Add Course</h2>
+  <form>
+    <label for="name">Course Name:</label>
+    <input type="text" id="name" [(ngModel)]="courseName" name="name" required>
+
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate" [(ngModel)]="startDate" name="startDate" required>
+
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate" [(ngModel)]="endDate" name="endDate" required>
+
+    <button type="button" (click)="addCourse()">Add Course</button>
+  </form>
+</div>
