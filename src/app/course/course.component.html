@@ -1,16 +1,21 @@
-<!-- course.component.html -->
-<div>
-  <h2>Add Course</h2>
-  <form>
-    <label for="name">Course Name:</label>
-    <input type="text" id="name" [(ngModel)]="courseName" name="name" required>
+<div class="container">
+  <div style="text-align: left;">
+    <h2>Add Course</h2>
+  </div>
+  <div class="form-group">
+    <label for="courseName">Course Name:</label>
+    <input [(ngModel)]="courseData.courseName" type="text" id="courseName" name="courseName" pInputText required>
+  </div>
 
+  <div class="form-group">
     <label for="startDate">Start Date:</label>
-    <input type="date" id="startDate" [(ngModel)]="startDate" name="startDate" required>
+    <input [(ngModel)]="courseData.startDate" type="date" id="startDate" name="startDate" pInputText required>
+  </div>
 
+  <div class="form-group">
     <label for="endDate">End Date:</label>
-    <input type="date" id="endDate" [(ngModel)]="endDate" name="endDate" required>
+    <input [(ngModel)]="courseData.endDate" type="date" id="endDate" name="endDate" pInputText required>
+  </div>
 
-    <button type="button" (click)="addCourse()">Add Course</button>
-  </form>
+  <button pButton type="button" label="Add Course" (click)="addCourse()" style="margin-top: 10px;"></button>
 </div>

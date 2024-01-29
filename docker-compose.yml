@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  spring-boot-app:
+    image: studentapp:1.0
+    container_name: spring-boot-container
+    ports:
+      - "8080:8080"
+    networks:
+      - my-network
+    depends_on:
+      - postgres-db
+
+  angular-app:
+    image: university-frontend:1.0
+    container_name: angular-app-container
+    ports:
+      - "4200:4200"
+    networks:
+      - my-network
+
+  postgres-db:
+    image: postgres:latest
+    container_name: postgres-container
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: university
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
